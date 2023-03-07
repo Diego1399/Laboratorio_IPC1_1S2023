@@ -17,21 +17,22 @@ public class principal extends javax.swing.JFrame {
     /**
      * Creates new form principal
      */
+    
     private String username;
     private String password;
     public static Menu menu = new Menu();
-
+    
     private Historia historial = calculadora.Calculadora.historial;
-
+    
     public Lista lista = calculadora.Calculadora.listaUsarios;
-
+    
     public principal() {
         initComponents();
         this.setTitle("Mi Calculadora"); // Agrega un titulo
         this.setResizable(false); // No se puede modificar el tamano
         //this.setLocation(300, 500);
         this.setLocationRelativeTo(null);
-
+        
     }
 
     /**
@@ -77,37 +78,37 @@ public class principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRegistrar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRegistrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnIngresar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPassword)
+                            .addComponent(txtUsername)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnIngresar)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegistrar)
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(btnIngresar)
+                    .addComponent(btnRegistrar))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,30 +118,19 @@ public class principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         username = txtUsername.getText();
         password = txtPassword.getText();
-
-        if (username.equalsIgnoreCase("admin")
-                       && password.equals("admin123")) {
-            InterfazAdmin admin = new InterfazAdmin(username);
-            admin.setVisible(true);
-        }
-
+        
+        
         Usuario nuevo = new Usuario(username, password);
-
+        
         if (lista.revisar(nuevo)) {
-
-            Usuario registrado = lista.devolverUusario(nuevo);
-
-            if (registrado.isEsAdmin()) {
-                InterfazAdmin admin = new InterfazAdmin(username);
-                admin.setVisible(true);
-            } else {
-                menu.setVisible(true);
-                this.setVisible(false);
-                historial.setContenido(username);
-            }
-
+            
+            menu.setVisible(true);
+            this.setVisible(false);
+            
+            historial.setContenido(username);
             //interfazCalculadora calculadora = new interfazCalculadora();
-            //calculadora.setVisible(true);  
+            //calculadora.setVisible(true);
+            
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
@@ -149,7 +139,7 @@ public class principal extends javax.swing.JFrame {
         registro ventana = new registro();
         ventana.setVisible(true);
         this.setVisible(false);
-
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

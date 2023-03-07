@@ -11,21 +11,19 @@ import java.util.ArrayList;
  * @author diego
  */
 public class Lista {
-    private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-    
-    
+    ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
     public Lista() {
         this.listaUsuarios = new ArrayList<>();
     }
     
     
     public void guardar(Usuario nuevo){
-        this.listaUsuarios.add(nuevo);
+        listaUsuarios.add(nuevo);
     }
     
     public boolean revisar(Usuario ingresado){
         boolean permitir = false;
-        for (Usuario user : this.listaUsuarios) {
+        for (Usuario user : listaUsuarios) {
             if(ingresado.Name.equalsIgnoreCase(user.Name) &&
                            ingresado.Pass.equals(user.Pass)){
                 permitir = true;
@@ -34,17 +32,6 @@ public class Lista {
         }
         
         return permitir;
-    }
-    
-    public Usuario devolverUusario(Usuario ingresado){
-        for (Usuario user : this.listaUsuarios) {
-            if(ingresado.Name.equalsIgnoreCase(user.Name) &&
-                           ingresado.Pass.equals(user.Pass)){
-                return user;
-            }
-        }
-        
-        return null;
     }
     
     public void mostrar(){
@@ -60,14 +47,6 @@ public class Lista {
             System.out.println(user.Name + " " + user.Pass);              
         }
         */
-    }
-
-    public ArrayList<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(ArrayList<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
     }
     
 }

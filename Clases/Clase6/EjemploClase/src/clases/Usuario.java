@@ -11,12 +11,10 @@ package clases;
 public class Usuario {
     public String Name;
     public String Pass;
-    private boolean esAdmin;
 
     public Usuario(String Name, String Pass) {
         this.Name = Name;
         this.Pass = Pass;
-        this.esAdmin = false;
     }
 
     public String getName() {
@@ -33,14 +31,6 @@ public class Usuario {
 
     public void setPass(String Pass) {
         this.Pass = Pass;
-    }
-
-    public void setEsAdmin(boolean esAdmin) {
-        this.esAdmin = esAdmin;
-    }
-
-    public boolean isEsAdmin() {
-        return esAdmin;
     }
     
     
