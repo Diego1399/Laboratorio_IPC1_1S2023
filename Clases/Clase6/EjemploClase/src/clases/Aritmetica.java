@@ -22,26 +22,4 @@ public class Aritmetica {
     public double division(double a, double b){
         return a / b;
     }
-    
-    public double raiz(double a){
-        return Math.sqrt(a);
-    }
-    
-    public double potencia(double a, double b){
-        double resultado = 1;
-        
-        for( int i = 1; i < b; i++) {
-            resultado = resultado * a;
-        }
-        
-        return resultado;
-    }
-    
-    public double porcentaje(double a) {
-        return a / 100;
-    }
-    
-    public double negativo(double a){
-        return a * -1;
-    }
 }

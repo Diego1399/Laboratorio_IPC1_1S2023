@@ -119,15 +119,31 @@ public class principal extends javax.swing.JFrame {
         username = txtUsername.getText();
         password = txtPassword.getText();
         
-        
+        if (username.equalsIgnoreCase("Admin")&&
+                       password.equals("admin123")) {
+            
+            interfazAdmin ventana = new interfazAdmin(username);
+            ventana.setVisible(true);
+        }
         Usuario nuevo = new Usuario(username, password);
         
         if (lista.revisar(nuevo)) {
             
-            menu.setVisible(true);
-            this.setVisible(false);
+            Usuario actual = lista.devolverUsuario(nuevo);
             
-            historial.setContenido(username);
+            if (actual.getEsAdmin()) {
+                interfazAdmin ventana = new interfazAdmin(username);
+                ventana.setVisible(true);
+                
+            } else {
+                menu.setVisible(true);
+                this.setVisible(false);
+
+                historial.setContenido(username);
+            }
+            
+            
+            
             //interfazCalculadora calculadora = new interfazCalculadora();
             //calculadora.setVisible(true);
             

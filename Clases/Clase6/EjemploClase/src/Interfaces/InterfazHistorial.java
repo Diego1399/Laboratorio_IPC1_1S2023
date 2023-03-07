@@ -21,6 +21,7 @@ public class InterfazHistorial extends javax.swing.JFrame {
     public InterfazHistorial() {
         initComponents();
         jTextArea1.setText(historial.getContenido());
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to

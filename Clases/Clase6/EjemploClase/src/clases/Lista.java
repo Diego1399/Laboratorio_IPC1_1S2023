@@ -16,7 +16,6 @@ public class Lista {
         this.listaUsuarios = new ArrayList<>();
     }
     
-    
     public void guardar(Usuario nuevo){
         listaUsuarios.add(nuevo);
     }
@@ -47,6 +46,20 @@ public class Lista {
             System.out.println(user.Name + " " + user.Pass);              
         }
         */
+    }
+
+    public ArrayList<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public Usuario devolverUsuario(Usuario ingresado) {
+        for (Usuario usuario : listaUsuarios) {
+            if (revisar(ingresado)) {
+                return usuario;
+            } 
+        }
+        
+        return null;
     }
     
 }
